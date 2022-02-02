@@ -1,7 +1,7 @@
 {
-  "name": "node-js-getting-started",
-  "version": "0.3.0",
-  "description": "A sample Node.js app using Express 4",
+  "name": "cmpt276-assignment-2",
+  "version": "0.0.1",
+  "description": "A database of rectangles!",
   "engines": {
     "node": "14.x"
   },
@@ -20,12 +20,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/node-js-getting-started"
-  },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
-  "license": "MIT"
+    "url": "https://github.com/Olpheux/CMPT276-Assignment-2"
+  }
 }

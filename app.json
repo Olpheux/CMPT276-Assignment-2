@@ -1,8 +1,6 @@
 {
-  "name": "Start on Heroku: Node.js",
-  "description": "A barebones Node.js app using Express 4",
-  "repository": "https://github.com/heroku/node-js-getting-started",
-  "logo": "https://cdn.rawgit.com/heroku/node-js-getting-started/main/public/node.svg",
-  "keywords": ["node", "express", "heroku"],
+  "name": "CMPT276 Assignment 2 - Spring 2022",
+  "description": "A database of rectangles!",
+  "repository": "https://github.com/Olpheux/CMPT276-Assignment-2",
   "image": "heroku/nodejs"
 }
