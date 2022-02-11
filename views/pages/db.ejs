@@ -13,6 +13,9 @@
 
 <ul>
     <% results.forEach(function(r) { %>
+      <!-- This is where we change what gets output-->
+      <!-- Almost no formatting, just csv with bullet points-->
+      <!-- Can probably adjust this with css or something?-->
         <li><%= r.id %> - <%= r.name %></li>
     <% }); %>
 </ul>
