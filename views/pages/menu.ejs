@@ -16,18 +16,13 @@
       <td id="nameHeader">Name</td>
       <td id="colorHeader">Color</td>
     </thead>
+    <!-- Should draw one row per entry in the DB? -->
+    <%boxList.forEach(function(r){
     <tr>
-      <td>BOXNAME</td>
-      <td>COLOR</td>
+      <td><%=r.Name %></td>
+      <td><%=r.ColorName %></td>
     </tr>
-    <tr>
-      <td>BOXNAME</td>
-      <td>COLOR</td>
-    </tr>
-    <tr>
-      <td>BOXNAME</td>
-      <td>COLOR</td>
-    </tr>
+    });
   </table>
 </div>
 </center>
