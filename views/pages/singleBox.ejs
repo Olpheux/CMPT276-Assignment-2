@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" href="../css/default.css">
+  <link rel="script" href="../default.js">
 </head>
 
 <body>
@@ -10,43 +11,45 @@
 <div id="drawingArea">
 </div>
 <div>
-  <form>
+    <!-- How do I tell this which box to load? -->
     <table id="rectList">
-      <!-- Probably want placeholder values of current value? -->
         <thead>
           <td id="entryHeader">Entry</td>
           <td id="valueHeader">Value</td>
         </thead>
         <tr>
           <td>Name:</td>
-          <td><input type="text" id="nameInput"></td>
+          <td>BOXNAME</td>
         </tr>
         <tr>
           <td>Color:</td>
-          <td><input type="text" id="colorInput"></td>
+          <td>COLOR</td>
         </tr>
         <tr>
           <td>Color (Hex):</td>
-          <td><input type="text" id="colorHexInput"></td>
+          <td>HEXCOLOR</td>
         </tr>
         <tr>
           <td>Height</td>
-          <td><input type="number" id="heightInput"></td>
+          <td>HEIGHT</td>
         </tr>
         <tr>
           <td>Width:</td>
-          <td><input type="number" id="widthInput">/td>
+          <td>WIDTH</td>
         </tr>
         <tr>
           <td>Total Area:</td>
-          <td><input type="number" id="areaInput"></td>
+          <td>AREA</td>
+        </tr>
+        <tr>
+          <td>Box ID:</td>
+          <td>ID</td>
         </tr>
     </table>
-  </form>
 </div>
 <div>
-    <!-- Put save button here [Action: Save, then return to previous page] -->
-    <!-- Put cancel button here [Action: Return to previous page]-->
+    <!-- Put delete button here [Action: Delete] -->
+    <!-- Put modify button here [Action: Redirect to modify page]-->
 </div>
 </center>
 </body>
