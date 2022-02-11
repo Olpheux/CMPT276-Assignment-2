@@ -49,6 +49,9 @@ app.save('/database', (res)=>{
   // Function does nothing for now.
 })
 
+app.deleteBox(); // Doesn't yet do anything, obviously
+                 // Should send delete command to the DB, then redirect back to main page
+
 express()
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
