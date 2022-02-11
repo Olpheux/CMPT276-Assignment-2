@@ -9,7 +9,9 @@ var pool = new Pool({
 
 var app = express()
 
-app.get('/database', (res)=>{
+// Does this work? Is the 'get' I was using previously
+// referring to the HTML request type??
+app.getAll('/database', (res)=>{
   var getBoxList = `SELECT * FROM boxes`;
   pool.query(getBoxList, (error,result) =>{
     if(error){
@@ -17,12 +19,35 @@ app.get('/database', (res)=>{
     }
     else{
       boxList = { results : result.rows }
-      res.render('pages/menu', boxList)
+      res.render('pages/menu', boxList) // Do I need this? If it's executing on the .ejs page, doesn't this happen already?
+    }
+  })
+})
+
+// see above
+app.getOne('/database', (res)=>{
+  var boxname = '' // Need to pass a specific name into this function somehow
+  var getBoxSingle = `SELECT ` + boxname + ` FROM boxes`; // Does JS include spaces when you concat?
+  pool.query(getBoxSingle, (error,result) =>{
+    if(error){
+      res.end(error);
+    }
+    else{
+      singleBox = { results : result.rows }
+      res.render('pages/singleBox.ejs', singleBox); // See above, may be unnecessary?
     }
   })
 })
 
 
+// see above; though this should be a post instead of get
+app.save('/database', (res)=>{
+  // Not sure how to configure this best. Can we load all necessary data into
+  // an array and save that or something?? Or do we just set one variable per value we
+  // want to save and semi-hardcode it...?
+  //
+  // Function does nothing for now.
+})
 
 express()
   .use(express.static(path.join(__dirname, 'public')))
