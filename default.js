@@ -4,7 +4,10 @@ const PORT = process.env.PORT || 5000
 
 const { Pool } = require('pg');
 var pool = new Pool({
-  connectionString: "postgres://rusmgvqfhtxhfj:ce7ce46007e9ef72f8df9734a8105ccebe1d6ac5939cf1c2b37a5200e1f63a88@ec2-3-227-195-74.compute-1.amazonaws.com:5432/d7vrcnlr3b50c1" // oh god hardcoding credentials
+  connectionString: "postgres://rusmgvqfhtxhfj:ce7ce46007e9ef72f8df9734a8105ccebe1d6ac5939cf1c2b37a5200e1f63a88@ec2-3-227-195-74.compute-1.amazonaws.com:5432/d7vrcnlr3b50c1" 
+  // oh god hardcoding credentials
+  // Github rightfully complains about this, it's a REALLY bad idea...
+  // normally. In this case it's meaningless data, so who cares.
 })
 
 var app = express()
@@ -20,6 +23,19 @@ app.getAll('/database', (res)=>{
     else{
       boxList = { results : result.rows }
       res.render('pages/menu', boxList) // Do I need this? If it's executing on the .ejs page, doesn't this happen already?
+    }
+  })
+})
+
+app.getMinimal('/database', (res)=>{
+  var getMinimalList = `SELECT Name, Color FROM boxes`;
+  pool.query(getMinimalList, (error,result) =>{
+    if(error){
+      res.end(error);
+    }
+    else{
+      minimalList = {results : result.rows }
+      res.render('pages/menu', boxList)
     }
   })
 })
