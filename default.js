@@ -26,7 +26,7 @@ app.get('/', (res)=>{
   })
 })
 
-app.get('/menu', (res)=>{
+app.get('/menu', (req, res)=>{
   var getMinimalList = `SELECT Name, Color FROM boxes`;
   pool.query(getMinimalList, (error,result) =>{
     if(error){
@@ -34,7 +34,7 @@ app.get('/menu', (res)=>{
     }
     else{
       var minimalList = {results : result.rows };
-      res.render('pages/menu.ejs', {minimalList: minimalList});
+      res.render('pages/menu.ejs', {boxList: minimalList});
     }
   })
 })
