@@ -11,7 +11,9 @@ var pool = new Pool({
 
 var app = express()
 
-app.get('/menu', (res)=>{
+// Pretty sure this shouldn't occur, package.json should
+// attempt to redirect you to menu.ejs first, but...
+app.get('/', (res)=>{
   var getMinimalList = `SELECT Name, Color FROM boxes`;
   pool.query(getMinimalList, (error,result) =>{
     if(error){
@@ -19,7 +21,20 @@ app.get('/menu', (res)=>{
     }
     else{
       minimalList = {results : result.rows }
-      res.render('pages/menu', minimalList)
+      res.render('pages/menu', {minimalList: minimalList})
+    }
+  })
+})
+
+app.get('/menu', (res)=>{
+  var getMinimalList = `SELECT Name, Color FROM boxes`;
+  pool.query(getMinimalList, (error,result) =>{
+    if(error){
+      res.end(error);
+    }
+    else{
+      minimalList = {results : result.rows };
+      res.render('pages/menu', {minimalList: minimalList});
     }
   })
 })
