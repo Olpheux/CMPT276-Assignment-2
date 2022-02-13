@@ -30,10 +30,12 @@ app.get('/menu', (req, res)=>{
   var getMinimalList = `SELECT Name, Color FROM boxes`;
   pool.query(getMinimalList, (error,result) =>{
     if(error){
+      console.log("--THIS BROKE--");
       res.end(error);
     }
     else{
       var minimalList = {results : result.rows };
+      console.log("--TEST--");
       console.log(minimalList);
       res.render('pages/menu.ejs', {minimalList: minimalList});
     }
