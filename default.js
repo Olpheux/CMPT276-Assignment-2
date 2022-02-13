@@ -33,8 +33,8 @@ app.get('/menu', (res)=>{
       res.end(error);
     }
     else{
-      minimalList = {results : result.rows };
-      res.render('pages/menu', {minimalList: minimalList});
+      var minimalList = {results : result.rows };
+      res.render('pages/menu.ejs', {minimalList: minimalList});
     }
   })
 })
