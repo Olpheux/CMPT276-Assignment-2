@@ -8,19 +8,16 @@
 
 <body>
 <center>
-<div id="drawingArea">
-</div>
 <div>
   <form method="post">
-    <table id="editBox">
-      <!-- Probably want placeholder values of current value? -->
+    <table id="newBox">
         <thead>
           <td id="entryHeader">Entry</td>
           <td id="valueHeader">Value</td>
         </thead>
         <tr>
           <td>Name:</td>
-          <td><input type="text" id="nameInput" placeholder=<% singleBox.name %>></td> <!-- Don't know if this syntax works... -->
+          <td><input type="text" id="nameInput"></td>
         </tr>
         <tr>
           <td>Color:</td>
@@ -46,8 +43,8 @@
   </form>
 </div>
 <div>
-  <button onclick="save()" id="saveButton">Save</button> <!-- Doesn't yet do anything -->
-  <a href="singleBox.ejs"><button id="cancelButton">Cancel</button></a> <!-- I think this is technically bad form, but browsers support it anyway?-->
+  <button onclick="add()" id="saveButton">Add</button> <!-- Doesn't yet do anything -->
+  <a href="menu.ejs"><button id="cancelButton">Cancel</button></a>
 </div>
 </center>
 </body>

@@ -17,14 +17,14 @@
       <td id="colorHeader">Color</td>
     </thead>
     <!-- Should draw one row per entry in the DB? -->
-    <%boxList.forEach(function(r){
+    <% boxList.forEach(function(r){ %>
     <tr>
-      <td><%=r.Name %></td> <!-- Need to make this a link... -->
+      <td><a href="singleBox.ejs/r.Name"><%=r.Name %></a></td>
       <td><%=r.ColorName %></td>
     </tr>
-    });
+    <% }); %>
   </table>
-  <button onclick="returnCalc()" id="returnButton">Return</button> <!-- Does this need to be a script? Can it just link back one page? -->
+  <a href="addBox.ejs"><button id="addButton">Add A Box</button></a>
 </div>
 </center>
 </body>
