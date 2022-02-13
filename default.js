@@ -34,7 +34,7 @@ app.get('/menu', (req, res)=>{
     }
     else{
       var minimalList = {results : result.rows };
-      res.render('pages/menu.ejs', {boxList: minimalList});
+      res.render('pages/menu.ejs', {minimalList: minimalList});
     }
   })
 })
