@@ -32,9 +32,9 @@
       <% console.log("==============="); %>
 
       // VSCode complains a lot about this, but it might work...
-      var divColor = <% minimalList.results[locals.i].ColorName %>;
-      var divWidth = <% minimalList.results[locals.i].Width %>;
-      var divHeight = <% minimalList.results[locals.i].Height %>;
+      var divColor = <%= minimalList.results[locals.i].ColorName %>;
+      var divWidth = <%= minimalList.results[locals.i].Width %>;
+      var divHeight = <%= minimalList.results[locals.i].Height %>;
       boxDivs[i].style.backgroundColor = divColor;
       boxDivs[i].style.min-width = divWidth;
       boxDivs[i].style.min-height = divHeight;
