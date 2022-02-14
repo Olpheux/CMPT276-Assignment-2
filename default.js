@@ -33,7 +33,7 @@ app.get('/menu', (req, res)=>{
   var getMinimalList = `SELECT * FROM boxes`;
   pool.query(getMinimalList, (error,result) =>{
     if(error){
-      res.end(error);
+      console.log(error);
     }
     else{
       var minimalList = {results : result.rows };
