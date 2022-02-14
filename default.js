@@ -10,8 +10,6 @@ var pool = new Pool({
 });
 
 var app = express();
-
-// Might be able to omit this entirely. Testing...
  
 // Pretty sure this shouldn't occur, package.json should
 // attempt to redirect you to menu.ejs first, but...
@@ -19,7 +17,7 @@ app.get('/', (req, res)=>{
   var getMinimalList = `SELECT Name, Color FROM boxes`;
   pool.query(getMinimalList, (error,result) =>{
     if(error){
-      res.end(error);
+      console.log(error);
     }
     else{
       minimalList = {results : result.rows }
