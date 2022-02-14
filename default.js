@@ -19,7 +19,7 @@ var app = express();
 // Pretty sure this shouldn't occur, package.json should
 // attempt to redirect you to menu.ejs first, but...
 app.get('/', (req, res)=>{
-  var getMinimalList = `SELECT Name, Color FROM boxes`;
+  var getMinimalList = `SELECT *  FROM boxes`;
   pool.query(getMinimalList, (error,result) =>{
     if(error){
       console.log(error);
