@@ -17,6 +17,9 @@
   <script>
     var boxDivs = document.getElementsByClassName("drawnBox");
     for(let i = 0; i < boxDivs.length; i++){
+      // FOR DEBUGGING, REMOVE THIS
+      console.log(minimalList);
+
       // VSCode complains a lot about this, but it might work...
       var divColor = <% minimalList.results[locals.i].ColorName %>;
       var divWidth = <% minimalList.results[locals.i].Width %>;
