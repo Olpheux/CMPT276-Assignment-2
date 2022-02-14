@@ -18,9 +18,9 @@
     var boxDivs = document.getElementsByClassName("drawnBox");
     for(let i = 0; i < boxDivs.length; i++){
       // FOR DEBUGGING, REMOVE THIS
-      console.log("===THIS IS THE LIST===");
-      console.log(minimalList);
-      console.log("===============");
+      <% console.log("===THIS IS THE LIST==="); %>
+      <% console.log(minimalList); %>
+      <% console.log("==============="); %>
 
       // VSCode complains a lot about this, but it might work...
       var divColor = <% minimalList.results[locals.i].ColorName %>;
