@@ -18,9 +18,9 @@
     var boxDivs = document.getElementsByClassName("drawnBox");
     for(let i = 0; i < boxDivs.length; i++){
       // VSCode complains a lot about this, but it might work...
-      var divColor = <% minimalList.results[i].BoxColor %>;
-      var divWidth = <% minimalList.results[i].Width %>;
-      var divHeight = <% minimalList.results[i].Height %>;
+      var divColor = <% minimalList.results[locals.i].BoxColor %>;
+      var divWidth = <% minimalList.results[locals.i].Width %>;
+      var divHeight = <% minimalList.results[locals.i].Height %>;
       boxDivs[i].style.backgroundColor = divColor;
       boxDivs[i].style.min-width = divWidth;
       boxDivs[i].style.min-height = divHeight;
