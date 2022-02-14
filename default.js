@@ -12,7 +12,7 @@ var pool = new Pool({
 var app = express();
 
 // Might be able to omit this entirely. Testing...
-/* 
+ 
 // Pretty sure this shouldn't occur, package.json should
 // attempt to redirect you to menu.ejs first, but...
 app.get('/', (req, res)=>{
@@ -27,7 +27,7 @@ app.get('/', (req, res)=>{
     }
   })
 });
-*/ 
+
 
 app.get('/menu', (req, res)=>{
   var getMinimalList = `SELECT * FROM boxes`;
@@ -97,5 +97,5 @@ app
   .use(express.static(path.join(__dirname, 'public')))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .get('/', (req, res) => res.render('pages/index'))
+  .get('/', (req, res) => res.render('pages/menu'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
