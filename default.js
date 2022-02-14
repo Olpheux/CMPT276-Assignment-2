@@ -41,12 +41,12 @@ app.get('/menu', (req, res)=>{
     else{
       var minimalList = {results : result.rows };
       console.log(minimalList);
-      res.render('pages/menu.ejs', {minimalList: minimalList});
+      res.render('pages/menu', {minimalList: minimalList});
     }
   })
 });
 
-app.get('/singleBox.ejs', (res)=>{
+app.get('/singleBox', (res)=>{
   var boxname = '' // Need to pass a specific name into this function somehow
   var getBoxSingle = `SELECT ` + boxname + ` FROM boxes`; // Does JS include spaces when you concat?
   pool.query(getBoxSingle, (error,result) =>{
@@ -55,7 +55,7 @@ app.get('/singleBox.ejs', (res)=>{
     }
     else{
       singleBox = { results : result.rows }
-      res.render('pages/singleBox.ejs', {singleBox: singleBox});
+      res.render('pages/singleBox', {singleBox: singleBox});
     }
   })
 });
@@ -68,7 +68,7 @@ app.get('/modifyBox.ejs/:boxName', (res)=>{
     }
     else{
       singleBox = { results : result.rows }
-      res.render('pages/modifyBox.ejs', {singleBox: singleBox});
+      res.render('pages/modifyBox', {singleBox: singleBox});
     }
   })
 });

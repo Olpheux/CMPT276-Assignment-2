@@ -9,11 +9,23 @@
 <body>
 <center>
 <div id="drawingArea">
-  <!-- Want to create a div for each box in the DB, 
-       with a minimum width/height and background color
-       according to the DB contents. Needs to get formatted
-       directly in here instead of in the .css; I don't think
-       the .css can pull from the database at all... -->
+  <!-- First, make enough divs... -->
+  <% minimalList.results.forEach(function(box){ %>
+    <div class="drawnBox"></div>
+  <% }) %>
+  <!-- Then edit them -->
+  <script>
+    var boxDivs = document.getElementsByClassName("drawnBox");
+    for(int i = 0; i < boxDivs.length; i++){
+      // VSCode complains a lot about this, but it might work...
+      var divColor = <% minimalList.results[i].BoxColor %>;
+      var divWidth = <% minimalList.results[i].Width %>;
+      var divHeight = <% minimalList.results[i].Height %>;
+      boxDivs[i].style.backgroundColor = divColor;
+      boxDivs[i].style.min-width = divWidth;
+      boxDivs[i].style.min-height = divHeight;
+    }
+  </script>
 </div>
 <div>
   <table id="rectList">
