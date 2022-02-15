@@ -10,7 +10,7 @@
 <center>
 <div id="drawingArea">
   <% minimalList.results.forEach(function(box){ %>
-    <div class="drawnBox" background="<%= box.ColorName %>" width="<%= box.Height %>" height="<%= box.Width %>"></div>
+    <div class="drawnBox" background="<%= box.ColorName %>" min-width="<%= box.Height %>" min-height="<%= box.Width %>"></div>
   <% }) %>
 </div>
 <div>
