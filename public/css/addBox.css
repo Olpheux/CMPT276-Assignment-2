@@ -1,0 +1,36 @@
+/***
+ * IDs
+ ***/
+#drawingArea{
+    width: 70%;
+    height: 40%;
+    background-color: rgb(224, 247, 255);
+    min-height: 200px;
+    border: 3px solid rgb(161, 161, 161);
+    margin-bottom: 30px;
+}
+
+#rectList{
+    width: 30%;
+}
+
+/***
+ * Generics
+ ***/
+tr:nth-child(even) {background-color: rgb(242, 242, 242);}
+
+table{
+    border-spacing: 0px;
+}
+
+thead{
+    background-color: rgb(161, 161, 161);
+    text-align: center;
+}
+
+td{
+    width: 15%;
+    border: 1px solid rgb(100, 100, 100);
+    border-spacing: 0px;
+    margin: 0px;
+}
