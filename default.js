@@ -84,9 +84,18 @@ app.get('/addBox', (req,res)=>{
   res.render('pages/addBox');
 });
 
-app.post('/addBox', (res)=>{
-  // This needs to add a new entry to the DB, while the above
-  // modifies an existing entry.
+app.post('/addBox', (req,res)=>{
+  const addBox = (req, res) => {
+    const { name, color, hex, height, width, area } = req.body;
+  
+    pool.query('INSERT INTO boxes (Name, ColorName, ColorHex, Height, Width, Area) VALUES ($1, $2)', [name, color, hex, height, width, area], (error, res) => {
+      if (error) {
+        throw error;
+      }
+      res.status(201).send(`User added with ID: ${result.insertId}`);
+      res.redirect('/menu');
+    })
+  }
 });
 
 app.get('/deleteBox/:boxName', (res)=>{
