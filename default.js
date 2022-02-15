@@ -80,17 +80,6 @@ app.post('/modifyBox.ejs', (res)=>{
   // Function does nothing for now.
 });
 
-app.get('/addbox.ejs', (res)=>{
-  pool.query((error,result) =>{
-    if(error){
-      console.log(error);
-    }
-    else{
-      res.render('pages/addBox');
-    }
-  })
-});
-
 app.post('/addBox.ejs', (res)=>{
   // This needs to add a new entry to the DB, while the above
   // modifies an existing entry.
