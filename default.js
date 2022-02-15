@@ -19,29 +19,29 @@ var app = express();
 // Pretty sure this shouldn't occur, package.json should
 // attempt to redirect you to menu.ejs first, but...
 app.get('/', (req, res)=>{
-  var getMinimalList = `SELECT *  FROM boxes`;
-  pool.query(getMinimalList, (error,result) =>{
+  var getBoxList = `SELECT *  FROM boxes`;
+  pool.query(getBoxList, (error,result) =>{
     if(error){
       console.log(error);
     }
     else{
-      minimalList = {results : result.rows }
-      res.render('pages/menu', {minimalList: minimalList})
+      boxList = {results : result.rows }
+      res.render('pages/menu', {boxList: boxList})
     }
   })
 });
 
 
 app.get('/menu', (req, res)=>{
-  var getMinimalList = `SELECT * FROM boxes`;
-  pool.query(getMinimalList, (error,result) =>{
+  var getBoxList = `SELECT * FROM boxes`;
+  pool.query(getBoxList, (error,result) =>{
     if(error){
       console.log(error);
     }
     else{
-      var minimalList = {results : result.rows };
-      console.log(minimalList);
-      res.render('pages/menu', {minimalList: minimalList});
+      var boxList = {results : result.rows };
+      console.log(boxList);
+      res.render('pages/menu', {boxList: boxList});
     }
   })
 });
@@ -82,6 +82,7 @@ app.post('/modifyBox.ejs', (res)=>{
 });
 
 app.get('/addbox.ejs', (res)=>{
+  pool.query()
   res.render('pages/addbox');
 });
 
