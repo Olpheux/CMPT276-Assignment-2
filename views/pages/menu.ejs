@@ -9,11 +9,11 @@
 <body>
 <center>
 <div id="drawingArea">
-  <!-- First, make enough divs... -->
   <% minimalList.results.forEach(function(box){ %>
-    <div class="drawnBox"></div>
+    <div class="drawnBox" background="<%= box.ColorName %>" width="<%= box.Height %>" height="<%= box.Width %>"></div>
   <% }) %>
-  <!-- Then edit them -->
+
+  <!-- Think this is actually all unnecessary! Trying something new here... 
   <script>
       // FOR DEBUGGING, REMOVE THIS
       <% console.log("===Full List==="); %>
@@ -23,7 +23,7 @@
     var boxDivs = document.getElementsByClassName("drawnBox");
     for(let i = 0; i < boxDivs.length; i++){
       // FOR DEBUGGING, REMOVE THIS
-      <% console.log("====== i ======"); %>
+      <% console.log("====== i ======"); %> //This is what's failing. locals.i is invalid. Fix this.
       <% console.log(locals.i); %>
       <% console.log("==============="); %>
 
@@ -32,14 +32,14 @@
       <% console.log("==============="); %>
 
       // VSCode complains a lot about this, but it might work...
-      var divColor = <%= minimalList.results[locals.i].ColorName %>;
-      var divWidth = <%= minimalList.results[locals.i].Width %>;
-      var divHeight = <%= minimalList.results[locals.i].Height %>;
+      var divColor = <% minimalList.results[locals.i].ColorName %>;
+      var divWidth = <% minimalList.results[locals.i].Width %>;
+      var divHeight = <% minimalList.results[locals.i].Height %>;
       boxDivs[i].style.backgroundColor = divColor;
       boxDivs[i].style.min-width = divWidth;
       boxDivs[i].style.min-height = divHeight;
     }
-  </script>
+  </script> -->
 </div>
 <div>
   <table id="rectList">
