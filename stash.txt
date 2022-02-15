@@ -1,0 +1,28 @@
+
+  <!-- Think this is actually all unnecessary! Trying something new here... 
+  <script>
+      // FOR DEBUGGING, REMOVE THIS
+      <% console.log("===Full List==="); %>
+      <% console.log(minimalList); %>
+      <% console.log("==============="); %>
+
+    var boxDivs = document.getElementsByClassName("drawnBox");
+    for(let i = 0; i < boxDivs.length; i++){
+      // FOR DEBUGGING, REMOVE THIS
+      <% console.log("====== i ======"); %> //This is what's failing. locals.i is invalid. Fix this.
+      <% console.log(locals.i); %>
+      <% console.log("==============="); %>
+
+      <% console.log("===Item at i==="); %>
+      <% console.log(minimalList[locals.i]); %>
+      <% console.log("==============="); %>
+
+      // VSCode complains a lot about this, but it might work...
+      var divColor = <% minimalList.results[locals.i].ColorName %>;
+      var divWidth = <% minimalList.results[locals.i].Width %>;
+      var divHeight = <% minimalList.results[locals.i].Height %>;
+      boxDivs[i].style.backgroundColor = divColor;
+      boxDivs[i].style.min-width = divWidth;
+      boxDivs[i].style.min-height = divHeight;
+    }
+  </script> -->
