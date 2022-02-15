@@ -40,7 +40,6 @@ app.get('/menu', (req, res)=>{
     }
     else{
       var boxList = {results : result.rows };
-      console.log(boxList);
       res.render('pages/menu', {boxList: boxList});
     }
   })
@@ -82,8 +81,14 @@ app.post('/modifyBox.ejs', (res)=>{
 });
 
 app.get('/addbox.ejs', (res)=>{
-  pool.query()
-  res.render('pages/addbox');
+  pool.query((error,result) =>{
+    if(error){
+      console.log(error);
+    }
+    else{
+      res.render('pages/addBox');
+    }
+  })
 });
 
 app.post('/addBox.ejs', (res)=>{
