@@ -81,6 +81,10 @@ app.post('/modifyBox.ejs', (res)=>{
   // Function does nothing for now.
 });
 
+app.get('/addbox.ejs', (res)=>{
+  res.render('pages/addbox');
+});
+
 app.post('/addBox.ejs', (res)=>{
   // This needs to add a new entry to the DB, while the above
   // modifies an existing entry.
