@@ -5,9 +5,7 @@ const PORT = process.env.PORT || 5000;
 const { Pool } = require('pg');
 var pool = new Pool({
   
-  connectionString: "postgres://rusmgvqfhtxhfj:ce7ce46007e9ef72f8df9734a8105ccebe1d6ac5939cf1c2b37a5200e1f63a88@ec2-3-227-195-74.compute-1.amazonaws.com:5432/d7vrcnlr3b50c1",
-  // Github rightfully complains about this, it's a REALLY bad idea...
-  // normally. In this case it's meaningless data, so who cares.
+  connectionString: process.env.DATABASE_URL,
   ssl: {
     rejectUnauthorized: false
   }
