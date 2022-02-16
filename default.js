@@ -115,4 +115,4 @@ app
 // Not 100% sure what this does, but seems to allow Express to properly handle
 // the results of an HTML form and actually pass the body through?
 const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({limit: '5000mb', extended: true, parameterLimit: 100000000000}));
+app.use(bodyParser.urlencoded({limit: '5000mb', extended: false, parameterLimit: 100000000000}));
