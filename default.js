@@ -91,7 +91,16 @@ console.log(req.body);
     if (error) { throw error; }
   })
 
-  res.render('pages/menu');
+  var getBoxList = `SELECT *  FROM boxes`;
+  pool.query(getBoxList, (error,result) =>{
+    if(error){
+      console.log(error);
+    }
+    else{
+      boxList = {results : result.rows }
+      res.render('pages/menu', {boxList: boxList})
+    }
+  })
 });
 
 app.get('/deleteBox/:boxName', (res)=>{
