@@ -6,10 +6,7 @@ const { Pool } = require('pg');
 var pool = new Pool({
   
   connectionString: process.env.DATABASE_URL,
-  ssl: {
-    rejectUnauthorized: false
-  }
-  // Should allow connections without SSL?
+  ssl: { rejectUnauthorized: false }
 });
 
 var app = express();
@@ -90,7 +87,6 @@ app.post('/addBox', (req,res)=>{
       if (error) {
         throw error;
       }
-      res.status(201).send(`User added with ID: ${result.insertId}`);
       res.redirect('/menu');
     })
   }
