@@ -80,9 +80,9 @@ app.get('/addBox', (req,res)=>{
 });
 
 app.post('/addBox', (req,res)=>{
-  const { name, color, hex, height, width, area } = req.body;
+  const { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput } = req.body;
 
-  pool.query('INSERT INTO boxes (Name, ColorName, ColorHex, Height, Width, Area) VALUES ($1, $2, $3, $4, $5, $6)', [name, color, hex, height, width, area], (error, res) => {
+  pool.query('INSERT INTO boxes (Name, ColorName, ColorHex, Height, Width, Area) VALUES ($1, $2, $3, $4, $5, $6)', [nameInput, colorInput, hexInput, heightInput, widthInput, areaInput], (error, res) => {
     if (error) {
       throw error;
     }
