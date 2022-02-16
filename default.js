@@ -80,16 +80,14 @@ app.get('/addBox', (req,res)=>{
 });
 
 app.post('/addBox', (req,res)=>{
-  const addBox = (req, res) => {
-    const { name, color, hex, height, width, area } = req.body;
-  
-    pool.query('INSERT INTO boxes (Name, ColorName, ColorHex, Height, Width, Area) VALUES ($1, $2)', [name, color, hex, height, width, area], (error, res) => {
-      if (error) {
-        throw error;
-      }
-      res.redirect('/menu');
-    })
-  }
+  const { name, color, hex, height, width, area } = req.body;
+
+  pool.query('INSERT INTO boxes (Name, ColorName, ColorHex, Height, Width, Area) VALUES ($1, $2, $3, $4, $5, $6)', [name, color, hex, height, width, area], (error, res) => {
+    if (error) {
+      throw error;
+    }
+    res.redirect('/menu');
+  })
 });
 
 app.get('/deleteBox/:boxName', (res)=>{
