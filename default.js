@@ -91,7 +91,7 @@ console.log(req.body);
     if (error) {
       throw error;
     }
-    res.redirect('/menu');
+    res.render('/menu');
   })
 });
 
