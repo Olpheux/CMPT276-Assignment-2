@@ -87,7 +87,7 @@ console.log(req.body);
 
   var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput } = req.body;
 
-  pool.query(`INSERT INTO public.boxes(ColorName, ColorHex, Height, Width, Area, Name) VALUES ($1, $2, $3, $4, $5, $6)`, [colorInput, hexInput, heightInput, widthInput, areaInput, nameInput], (error, res) => {
+  pool.query(`INSERT INTO public.boxes(\"Name\", \"ColorName\", \"ColorHex\", \"Height\", \"Width\", \"Area\") VALUES ($1, $2, $3, $4, $5, $6)`, [nameInput, colorInput, hexInput, heightInput, widthInput, areaInput], (error, res) => {
     if (error) {
       throw error;
     }
