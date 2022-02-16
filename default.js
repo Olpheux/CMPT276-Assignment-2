@@ -91,7 +91,7 @@ console.log(req.body);
     if (error) { throw error; }
   })
 
-  res.render('/menu');
+  res.render('pages/menu');
 });
 
 app.get('/deleteBox/:boxName', (res)=>{
