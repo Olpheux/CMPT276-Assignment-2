@@ -109,3 +109,10 @@ app
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/menu'))
   .listen(PORT, () => console.log(`Listening on ${ PORT }`))
+
+
+// Lifted from https://stackoverflow.com/a/67612277
+// Not 100% sure what this does, but seems to allow Express to properly handle
+// the results of an HTML form and actually pass the body through?
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({limit: '5000mb', extended: true, parameterLimit: 100000000000}));
