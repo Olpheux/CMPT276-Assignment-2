@@ -80,7 +80,7 @@ app.get('/addBox', (req,res)=>{
 });
 
 app.post('/addBox', (req,res)=>{
-console.log(req.body);
+console.log(req);
 
   var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput } = req.body;
 
