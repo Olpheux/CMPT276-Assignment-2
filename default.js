@@ -106,7 +106,6 @@ app.get('/deleteBox/:boxName', (res)=>{
 app
   .use(express.static(path.join(__dirname, 'public')))
   .use(express.static('public'))
-  .use(bodyParser.json())
   .use(bodyParser.urlencoded({extended: true,}))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
