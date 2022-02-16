@@ -11,6 +11,8 @@ var pool = new Pool({
 });
 
 var app = express();
+
+app.use(bodyParser.urlencoded({extended: true,}))
  
 // Pretty sure this shouldn't occur, package.json should
 // attempt to redirect you to menu.ejs first, but...
@@ -106,7 +108,6 @@ app.get('/deleteBox/:boxName', (res)=>{
 app
   .use(express.static(path.join(__dirname, 'public')))
   .use(express.static('public'))
-  .use(bodyParser.urlencoded({extended: true,}))
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/menu'))
