@@ -55,9 +55,7 @@ app.get('/singleBox/:boxname', (req, res)=>{
 
 app.get('/modifyBox/:boxName', (req, res)=>{
   pool.query(`SELECT * FROM boxes WHERE \"Name\"=$1`, [req.params.boxName], (error,result) =>{
-    if(error){
-      res.end(error);
-    }
+    if(error){ throw error; }
     else{
       singleBox = { results : result.rows }
       res.render('pages/modifyBox', {singleBox: singleBox});
