@@ -45,6 +45,13 @@ app.get('/menu', (req, res)=>{
 
 app.get('/singleBox/:boxname', (req, res)=>{
   var boxName = req.params.boxname;
+
+  console.log("====DEBUG====");
+  console.log(boxName);
+  console.log("=============");
+
+
+  
   var getBoxSingle = `SELECT ` + boxName + ` FROM boxes`; // Does JS include spaces when you concat?
   pool.query(getBoxSingle, (error,result) =>{
     if(error){
