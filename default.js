@@ -44,7 +44,7 @@ app.get('/menu', (req, res)=>{
 });
 
 app.get('/singleBox/:boxname', (req, res)=>{
-  pool.query(`SELECT * FROM boxes WHERE Name=$1`, [req.params.boxname], (error,result) =>{
+  pool.query(`SELECT * FROM boxes WHERE \"Name\"=$1`, [req.params.boxname], (error,result) =>{
     if(error){ throw error; }
     else{
       singleBox = { results : result.rows }
@@ -54,7 +54,7 @@ app.get('/singleBox/:boxname', (req, res)=>{
 });
 
 app.get('/modifyBox.ejs/:boxName', (res)=>{
-  pool.query(`SELECT * FROM boxes WHERE Name=$1`, [req.params.boxName], (error,result) =>{
+  pool.query(`SELECT * FROM boxes WHERE \"Name\"=$1`, [req.params.boxName], (error,result) =>{
     if(error){
       res.end(error);
     }
