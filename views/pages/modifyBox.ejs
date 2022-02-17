@@ -2,17 +2,18 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="../css/default.css">
+  <link rel="stylesheet" href="../css/oneBox.css">
   <link rel="script" href="../default.js">
 </head>
 
 <body>
 <center>
+  <% var box = singleBox.results[0]; %>
 <div id="drawingArea">
+  <div class="drawnBox" style="background-color:<%= box.ColorName %>;min-width:<%= box.Height %>px;min-height:<%= box.Width %>px;display:inline-block;margin:5px"></div>
 </div>
 <div>
-  <% var box = singleBox.results[0]; %>
-  <form action="modifyBox" method="POST" id="modifyBox"> <!-- COPIED FROM ADDBOX, NOT YET UPDATED -->
+  <form action="modifyBox" method="POST" id="modifyBox">
     <table id="updateBox">
         <thead>
           <td id="entryHeader">Entry</td>
