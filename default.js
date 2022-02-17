@@ -51,8 +51,8 @@ app.get('/singleBox/:boxname', (req, res)=>{
   console.log("=============");
 
 
-  
-  var getBoxSingle = `SELECT ` + boxName + ` FROM boxes`; // Does JS include spaces when you concat?
+
+  var getBoxSingle = `SELECT $1 FROM boxes`, boxName;
   pool.query(getBoxSingle, (error,result) =>{
     if(error){
       res.end(error);
@@ -65,7 +65,7 @@ app.get('/singleBox/:boxname', (req, res)=>{
 });
 
 app.get('/modifyBox.ejs/:boxName', (res)=>{
-  var getBoxSingle = `SELECT ` + boxName + ` FROM boxes`; // Does JS include spaces when you concat?
+  var getBoxSingle = `SELECT $1 FROM boxes`, boxName; // Does JS include spaces when you concat?
   pool.query(getBoxSingle, (error,result) =>{
     if(error){
       res.end(error);
