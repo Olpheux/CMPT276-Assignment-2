@@ -92,7 +92,7 @@ app.post('/addBox', (req,res)=>{
     }
     else{
       boxList = {results : result.rows }
-      res.render('pages/menu', {boxList: boxList})
+      res.redirect('pages/menu', {boxList: boxList})
     }
   })
 });
