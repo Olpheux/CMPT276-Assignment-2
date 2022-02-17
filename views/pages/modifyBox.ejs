@@ -11,35 +11,39 @@
 <div id="drawingArea">
 </div>
 <div>
-  <form action="addBox" method="POST" id="addBox"> <!-- COPIED FROM ADDBOX, NOT YET UPDATED -->
-    <table id="newBox">
+  <form action="modifyBox" method="POST" id="modifyBox"> <!-- COPIED FROM ADDBOX, NOT YET UPDATED -->
+    <table id="updateBox">
         <thead>
           <td id="entryHeader">Entry</td>
           <td id="valueHeader">Value</td>
         </thead>
         <tr>
           <td>Name:</td>
-          <td><input type="text" id="nameInput" name="nameInput"></td>
+          <td><input type="text" id="nameInput" name="nameInput" value="<%= box.Name %>"></td>
         </tr>
         <tr>
           <td>Color: <br /><font size="0.8em">(only HTML color names supported)</font></td>
-          <td><input type="text" id="colorInput" name="colorInput"></td>
+          <td><input type="text" id="colorInput" name="colorInput" value="<%= box.ColorName %>"></td>
         </tr>
         <tr>
           <td>Color (Hex): <br /><font size="0.8em">(not used to draw the box, can enter any value)</font></td>
-          <td><input type="text" id="colorHexInput" name="colorHexInput"></td>
+          <td><input type="text" id="hexInput" name="hexInput" value="<%= box.ColorHex %>"></td>
         </tr>
         <tr>
           <td>Height</td>
-          <td><input type="number" id="heightInput" name="heightInput"></td>
+          <td><input type="number" id="heightInput" name="heightInput" value="<%= box.Height %>"></td>
         </tr>
         <tr>
           <td>Width:</td>
-          <td><input type="number" id="widthInput" name="widthInput"></td>
+          <td><input type="number" id="widthInput" name="widthInput" value="<%= box.Width %>"></td>
         </tr>
         <tr>
           <td>Total Area:</td> <!-- Can I make this calculate automatically? -->
-          <td><input type="number" id="areaInput" name="areaInput"></td>
+          <td><input type="number" id="areaInput" name="areaInput" value="<%= box.Area %>"></td>
+        </tr>
+        <tr>
+          <td>ID:<br /><font size="0.8em">(cannot be modified)</font></td>
+          <td><input type="number" value="<%= box.ID %>" disabled></td>
         </tr>
     </table>
 </div>

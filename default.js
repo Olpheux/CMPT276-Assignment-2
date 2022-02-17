@@ -53,7 +53,7 @@ app.get('/singleBox/:boxname', (req, res)=>{
   })
 });
 
-app.get('/modifyBox.ejs/:boxName', (res)=>{
+app.get('/modifyBox/:boxName', (req, res)=>{
   pool.query(`SELECT * FROM boxes WHERE \"Name\"=$1`, [req.params.boxName], (error,result) =>{
     if(error){
       res.end(error);
@@ -66,11 +66,17 @@ app.get('/modifyBox.ejs/:boxName', (res)=>{
 });
 
 app.post('/modifyBox.ejs', (res)=>{
-  // Not sure how to configure this best. Can we load all necessary data into
-  // an array and save that or something?? Or do we just set one variable per value we
-  // want to save and semi-hardcode it...?
-  //
-  // Function does nothing for now.
+  
+  var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput } = req.body;
+
+  pool.query(`UPDATE boxes SET \"Name\"=$1, \"ColorName\"=$2 \", \"ColorHex\"=$3, \"Height\"=$4, \"Width\"=$5, \"Area\"=$6 WHERE \"ID\"=$7`, [nameInput, colorInput, hexInput, heightInput, widthInput, areaInput, IDInputDisabled], (error,result) =>{
+    if(error){
+      res.end(error);
+    }
+    else{
+      res.redirect(200, '/menu');
+    }
+  })
 });
 
 app.get('/addBox', (req,res)=>{
