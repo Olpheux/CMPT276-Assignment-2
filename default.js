@@ -63,9 +63,9 @@ app.get('/modifyBox/:boxName', (req, res)=>{
   })
 });
 
-app.post('modifyBox', (res)=>{
+app.post('modifyBox/:boxName', (res)=>{
   
-  var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput } = req.body;
+  var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput, IDInputDisabled } = req.body;
 
   pool.query(`UPDATE boxes SET \"Name\"=$1, \"ColorName\"=$2 \", \"ColorHex\"=$3, \"Height\"=$4, \"Width\"=$5, \"Area\"=$6 WHERE \"ID\"=$7`, [nameInput, colorInput, hexInput, heightInput, widthInput, areaInput, IDInputDisabled], (error,result) =>{
     if(error){
