@@ -91,7 +91,6 @@ app.post('/addBox', (req,res)=>{
       console.log(error);
     }
     else{
-      boxList = {results : result.rows }
       res.redirect(200, '/menu')
     }
   })
