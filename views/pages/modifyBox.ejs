@@ -10,7 +10,7 @@
 <center>
   <% var box = singleBox.results[0]; %>
 <div id="drawingArea">
-  <div class="drawnBox" style="background-color:<%= box.ColorName %>;min-width:<%= box.Height %>px;min-height:<%= box.Width %>px;display:inline-block;margin:5px"></div>
+  <div class="drawnBox" style="background-color:<%= box.ColorName %>;min-width:<%= box.Width %>px;min-height:<%= box.Height %>px;display:inline-block;margin:5px"></div>
 </div>
 <div>
   <form action="modifyBox" method="POST" id="modifyBox">
@@ -50,7 +50,7 @@
     </table>
 </div>
 <div>
-  <input type="submit" value="Add">
+  <input type="submit" value="Save">
   </form>
   <a href="menu"><button id="cancelButton">Cancel</button></a> <!-- I think this is technically bad form, but browsers support it anyway?-->
 </div>
