@@ -44,16 +44,8 @@ app.get('/menu', (req, res)=>{
 });
 
 app.get('/singleBox/:boxname', (req, res)=>{
-  var boxName = req.params.boxname;
-
-  console.log("====DEBUG====");
-  console.log(boxName);
-  console.log("=============");
-
-  pool.query(`SELECT * FROM boxes WHERE Name=$1`, [req.params.boxName], (error,result) =>{
-    if(error){
-      res.end(error);
-    }
+  pool.query(`SELECT * FROM boxes WHERE Name=$1`, [req.params.boxname], (error,result) =>{
+    if(error){ throw error; }
     else{
       singleBox = { results : result.rows }
       res.render('pages/singleBox', {singleBox: singleBox});
@@ -86,7 +78,6 @@ app.get('/addBox', (req,res)=>{
 });
 
 app.post('/addBox', (req,res)=>{
-console.log(req.body);
 
   var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput } = req.body;
 
