@@ -9,8 +9,10 @@
 <body>
 <center>
 <div id="drawingArea">
-  <!-- Draw the box in question here with a div of the
-       right dimensions and background color set properly-->
+  <!-- Should only run once, doesn't really need to be a loop, but know this syntax works-->
+  <% singleBox.results.forEach(function(box){ %>
+    <div class="drawnBox" style="background-color:<%= box.ColorName %>;min-width:<%= box.Height %>px;min-height:<%= box.Width %>px;display:inline-block;margin:5px"></div>
+  <% }) %>
 </div>
 <div>
     <table id="rectList">
@@ -49,8 +51,8 @@
     </table>
 </div>
 <div>
-    <button onclick="deleteBox()" id="deleteButton">Delete Box</button> <!-- Can't just call function 'delete', seems to be a keyword? -->
-    <button onclick="modifyBox()" id="modifyButton">Modify Box</button> <!-- Should redirect to modify page for this specific item -->
+    <a href="delete/<%=singleBox.Name%>"><button id="deleteButton">Delete</button></a>
+    <a href="modify/<%=singleBox.Name%>"><button id="modifyButton">Modify Box</button></a>
 </div>
 </center>
 </body>

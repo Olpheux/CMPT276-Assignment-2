@@ -11,43 +11,42 @@
 <div id="drawingArea">
 </div>
 <div>
-  <form method="post">
-    <table id="editBox">
-      <!-- Probably want placeholder values of current value? -->
+  <form action="addBox" method="POST" id="addBox"> <!-- COPIED FROM ADDBOX, NOT YET UPDATED -->
+    <table id="newBox">
         <thead>
           <td id="entryHeader">Entry</td>
           <td id="valueHeader">Value</td>
         </thead>
         <tr>
           <td>Name:</td>
-          <td><input type="text" id="nameInput" placeholder=<% singleBox.name %>></td> <!-- Don't know if this syntax works... -->
+          <td><input type="text" id="nameInput" name="nameInput"></td>
         </tr>
         <tr>
-          <td>Color: <br /><font size="60%">(only HTML color names supported)</font></td>
-          <td><input type="text" id="colorInput"></td>
+          <td>Color: <br /><font size="0.8em">(only HTML color names supported)</font></td>
+          <td><input type="text" id="colorInput" name="colorInput"></td>
         </tr>
         <tr>
-          <td>Color (Hex):</td>
-          <td><input type="text" id="colorHexInput"></td>
+          <td>Color (Hex): <br /><font size="0.8em">(not used to draw the box, can enter any value)</font></td>
+          <td><input type="text" id="colorHexInput" name="colorHexInput"></td>
         </tr>
         <tr>
           <td>Height</td>
-          <td><input type="number" id="heightInput"></td>
+          <td><input type="number" id="heightInput" name="heightInput"></td>
         </tr>
         <tr>
           <td>Width:</td>
-          <td><input type="number" id="widthInput"></td>
+          <td><input type="number" id="widthInput" name="widthInput"></td>
         </tr>
         <tr>
           <td>Total Area:</td> <!-- Can I make this calculate automatically? -->
-          <td><input type="number" id="areaInput"></td>
+          <td><input type="number" id="areaInput" name="areaInput"></td>
         </tr>
     </table>
-  </form>
 </div>
 <div>
-  <button onclick="save()" id="saveButton">Save</button> <!-- Doesn't yet do anything -->
-  <a href="singleBox.ejs"><button id="cancelButton">Cancel</button></a> <!-- I think this is technically bad form, but browsers support it anyway?-->
+  <input type="submit" value="Add">
+  </form>
+  <a href="menu"><button id="cancelButton">Cancel</button></a> <!-- I think this is technically bad form, but browsers support it anyway?-->
 </div>
 </center>
 </body>
