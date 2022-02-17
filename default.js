@@ -65,7 +65,7 @@ app.get('/modifyBox/:boxName', (req, res)=>{
   })
 });
 
-app.post('/modifyBox.ejs', (res)=>{
+app.post('/modifyBox', (res)=>{
   
   var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput } = req.body;
 
