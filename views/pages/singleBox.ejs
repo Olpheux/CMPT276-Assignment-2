@@ -9,10 +9,8 @@
 <body>
 <center>
 <div id="drawingArea">
-  <!-- Should only run once, doesn't really need to be a loop, but know this syntax works-->
-  <!-- Guess this handles for when you have two boxes with the same name too...? -->
-  <% singleBox.results.forEach(function(box){ %>
-    <div class="drawnBox" style="background-color:<%= box.ColorName %>;min-width:<%= box.Height %>px;min-height:<%= box.Width %>px;display:inline-block;margin:5px"></div>
+  <% var box = singleBox.results[0]; %>
+    <div class="drawnBox" style="background-color:<%= box.ColorName %>;min-width:<%= box.Width %>px;min-height:<%= box.Height %>px;display:inline-block;margin:5px"></div>
 </div>
 <div>
     <table id="rectList">
@@ -54,7 +52,6 @@
     <a href="/deleteBox/<%=box.Name%>"><button id="deleteButton">Delete</button></a>
     <a href="/modifyBox/<%=box.Name%>"><button id="modifyButton">Modify Box</button></a>
 </div>
-<% }) %>
 </center>
 </body>
 </html>
