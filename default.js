@@ -70,7 +70,7 @@ app.post('/modifyBox/:boxName', (req, res)=>{
   pool.query(`UPDATE boxes SET \"Name\"=$1, \"ColorName\"=$2, \"ColorHex\"=$3, \"Height\"=$4, \"Width\"=$5, \"Area\"=$6 WHERE \"ID\"=$7`, [nameInput, colorInput, hexInput, heightInput, widthInput, areaInput, IDInputDisabled], (error,result) =>{
     if(error){ throw error; }
     else{
-      res.redirect(200, '/menu');
+      res.redirect('/menu');
     }
   })
 });
@@ -93,7 +93,7 @@ app.post('/addBox', (req,res)=>{
       console.log(error);
     }
     else{
-      res.redirect(200, '/menu')
+      res.redirect('/menu')
     }
   })
 });
