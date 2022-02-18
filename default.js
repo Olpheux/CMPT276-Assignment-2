@@ -102,14 +102,13 @@ app.post('/addBox', (req,res)=>{
   })
 });
 
-app.get('/deleteBox/:boxName', (res)=>{
-  // Doesn't yet do anything, obviously
-  // Should send delete command to the DB, then redirect back to main page
-  //
-  // Because this doesn't actually need to render a specific page,
-  // it's okay that deleteBox.ejs isn't a real file. Express will just
-  // intercept the request and execute this function instead, which we can
-  // get to just send us back to main, which will now have this box missing.
+app.get('/deleteBox/:boxName', (req, res)=>{
+  pool.query(`DELETE FROM boxes WHERE \"Name\"=$1`, [req.params.boxName], (error, result)=>{
+    if(error){ throw error; }
+    else{
+      res.redirect('/menu');
+    }
+  })
 }); 
 
 app
