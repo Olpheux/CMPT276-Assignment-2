@@ -67,6 +67,10 @@ app.post('/modifyBox/:boxName', (req, res)=>{
   
   var { nameInput, colorInput, hexInput, heightInput, widthInput, areaInput, IDInputDisabled } = req.body;
 
+  console.log("====DEBUG====");
+  console.log(req.body);
+  console.log("======")
+
   pool.query(`UPDATE public.boxes SET \"Name\"=$1, \"ColorName\"=$2, \"ColorHex\"=$3, \"Height\"=$4, \"Width\"=$5, \"Area\"=$6 WHERE \"ID\"=$7`, [nameInput, colorInput, hexInput, heightInput, widthInput, areaInput, IDInputDisabled], (error,result) =>{
     if(error){ throw error; }
     else{
